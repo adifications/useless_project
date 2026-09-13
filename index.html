@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>നീല NAKSHATRAM LARP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <!-- Dynamic Solar System & Starfield VFX Canvas -->
+    <canvas id="solar-canvas"></canvas>
+
+    <!-- Navigation Header -->
+    <header id="nav-header" class="liquid-panel">
+        <div id="nav-left">
+            <div id="menu-container">
+                <button id="menu-btn" class="glass-btn"><span class="icon">✦</span> Menu</button>
+                <div id="dropdown" class="liquid-panel">
+                    <button id="nav-apod" class="glass-btn text-left">01 // SATTELITE IMAGE</button>
+                    <button id="nav-mcq" class="glass-btn text-left">02 // COSMIC QnA</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="project-brand">
+            <span class="brand-neela">നീല</span><span class="brand-kuyil">NAKSHATRAM</span>
+        </div>
+
+        <div id="nav-right">
+            <div id="dashboard-date-entry" class="liquid-pill">
+                <label for="target-date">DATE</label>
+                <input type="date" id="target-date" class="glass-input">
+                <button id="launch-btn" class="glass-btn highlight-btn">ENGAGE</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- The Main Scratch-Off Feed -->
+    <main id="dashboard">
+        <canvas id="space-canvas"></canvas>
+        <iframe id="space-video" frameborder="0" allowfullscreen></iframe>
+        
+        <aside id="info-bubble" class="liquid-panel">
+            <div class="liquid-glare"></div>
+            <h1 id="apod-title">Awaiting Coordinates...</h1>
+            <div id="eraser-tools">
+                <span class="pulse-text">SCRUB FEED TO DECODE SENSOR DATA <br> (പണി എടുക്ക് വ്രോ)</span>
+            </div>
+            <p id="apod-desc">Enter an epoch coordinate above to pierce cosmic interference.</p>
+        </aside>
+    </main>
+
+    <!-- The MCQ Game Mode -->
+    <section id="mcq-game">
+        <div class="liquid-panel mcq-card">
+            <h2>IDENTIFY WHATEVER TS IS</h2>
+            <div class="image-wrapper">
+                <img id="mcq-image" src="" alt="Awaiting Signal...">
+            </div>
+            <div class="mcq-options" id="mcq-options-container"></div>
+            <p id="mcq-status"></p>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- USELESS GAUNTLET MODALS -->
+    <!-- ============================================== -->
+
+    <!-- Syzygy Calibration Modal -->
+    <div id="syzygy-modal" class="useless-modal hidden">
+        <div class="liquid-panel modal-content text-center">
+            <h2>ORBITAL ALIGNMENT REQUIRED [പണി എടുക്കു...]</h2>
+            <p>Drag the celestial bodies into Syzygy (Top Dead Center 0°) to lock coordinates.<br><strong>Caution:</strong> High drag velocity causes orbit escape.</p>
+            <div class="orbit-system">
+                <div class="orbit-ring" id="ring-year"><div class="planet" id="planet-year"></div></div>
+                <div class="orbit-ring" id="ring-month"><div class="planet" id="planet-month"></div></div>
+                <div class="orbit-ring" id="ring-day"><div class="planet" id="planet-day"></div></div>
+            </div>
+            <button id="syzygy-lock-btn" class="glass-btn highlight-btn" style="margin-top: 20px;">LOCK ALIGNMENT</button>
+        </div>
+    </div>
+
+    <!-- Dark Matter Captcha Modal -->
+    <div id="captcha-modal" class="useless-modal hidden">
+        <div class="liquid-panel modal-content text-center">
+            <h2>SECURITY OVERRIDE</h2>
+            <p>Prove you are a carbon-based lifeform.<br>Select all image tiles containing <strong>Dark Matter</strong>.</p>
+            <div class="captcha-grid">
+                <div class="c-tile"></div><div class="c-tile"></div><div class="c-tile"></div>
+                <div class="c-tile"></div><div class="c-tile"></div><div class="c-tile"></div>
+                <div class="c-tile"></div><div class="c-tile"></div><div class="c-tile"></div>
+            </div>
+            <button id="captcha-verify-btn" class="glass-btn highlight-btn" style="margin-top: 15px;">VERIFY HUMANITY</button>
+        </div>
+    </div>
+
+    <!-- Kinetic Download Modal -->
+    <div id="kinetic-modal" class="useless-modal hidden">
+        <div class="liquid-panel modal-content text-center">
+            <h2>KINETIC ENERGY REQUIRED</h2>
+            <p>NASA payload is heavy. Power the satellite dish using your <strong>scroll wheel</strong>.<br>Do not stop</p>
+            <div class="progress-bar">
+                <div id="kinetic-fill"></div>
+            </div>
+            <h1 id="kinetic-text">0%</h1>
+        </div>
+    </div>
+
+    <!-- Universal Loader -->
+    <div id="loader-overlay" class="useless-modal hidden">
+        <div class="liquid-panel modal-content text-center">
+            <div class="loader-spinner" style="margin: 0 auto 20px;"></div>
+            <h2>DECRYPTING SIGNAL</h2>
+            <p id="ping-text"></p>
+            <button id="override-btn" class="glass-btn highlight-btn" style="display: none; margin-top: 15px;">OVERRIDE PROTOCOL</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

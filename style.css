@@ -1,0 +1,424 @@
+:root {
+    --pitch-black: #030307;
+    --glass-bg: rgba(13, 16, 27, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-border-hover: rgba(255, 255, 255, 0.28);
+    --glass-highlight: rgba(255, 255, 255, 0.06);
+    
+    --primary-grad: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    --accent-grad: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);
+    --glow-cyan: rgba(0, 242, 254, 0.35);
+    --glow-purple: rgba(112, 0, 255, 0.35);
+
+    --text-main: #f0f4fc;
+    --text-dim: #8b9bb4;
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Outfit', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    width: 100vw;          
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--pitch-black);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 15px;
+}
+
+/* Background Solar Canvas */
+#solar-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Liquid Glass System */
+.liquid-panel, .liquid-pill {
+    background: var(--glass-bg);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 var(--glass-highlight);
+    position: relative;
+    overflow: hidden;
+}
+
+.liquid-panel { border-radius: 20px; }
+.liquid-pill { border-radius: 999px; }
+
+/* Interactive Glass Elements */
+.glass-btn, .glass-input {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    border-radius: 12px;
+    padding: 10px 18px;
+    outline: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-btn {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.glass-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--glass-border-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--glow-cyan);
+}
+
+.highlight-btn {
+    background: var(--primary-grad);
+    color: #030307;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 4px 20px var(--glow-cyan);
+}
+
+.highlight-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(0, 242, 254, 0.6);
+}
+
+.glass-input {
+    color-scheme: dark;
+}
+
+.glass-input:focus {
+    border-color: #00f2fe;
+    box-shadow: 0 0 15px var(--glow-cyan);
+}
+
+/* Navigation Header */
+#nav-header {
+    position: fixed;
+    top: 16px;
+    left: 20px;
+    right: 20px;
+    height: 64px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    border-radius: 18px;
+    overflow: visible; /* <-- Add this line to override the liquid-panel clipping */
+}
+#nav-left, #nav-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+#nav-right {
+    justify-content: flex-end;
+}
+#project-brand {
+    flex: 0 0 auto;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    user-select: none;
+    text-align: center;
+}
+
+/* "NEELA" in Cyan / Deep Sky Blue with ambient neon drop-shadow */
+.brand-neela {
+    background: linear-gradient(135deg, #00f2fe 0%, #2575fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.5));
+}
+
+/* "KUYIL" in crisp luminous silver-white */
+.brand-kuyil {
+    color: #f0f4fc;
+    letter-spacing: 4px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+#dashboard-date-entry {
+    padding: 4px 6px 4px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#dashboard-date-entry label {
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    color: var(--text-dim);
+}
+
+#menu-container { 
+    position: relative; 
+}
+
+#dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 0;
+    padding: 12px;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 250px;
+}
+#menu-container, #dashboard-date-entry {
+    pointer-events: auto; /* Add this: re-enables clicks for buttons */
+}
+
+.text-left { justify-content: flex-start; }
+
+/* Scratch-off View */
+#dashboard {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+}
+
+#space-canvas, #space-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#space-video { display: none; }
+
+#info-bubble {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    width: 360px;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding: 24px;
+    z-index: 10;
+}
+
+#apod-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+
+#apod-desc {
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 300;
+}
+
+.pulse-text {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #00f2fe;
+    display: inline-block;
+    margin-bottom: 12px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* MCQ Mode */
+#mcq-game {
+    display: none;
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.mcq-card {
+    max-width: 850px;
+    width: 100%;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mcq-card h2 {
+    font-family: var(--font-heading);
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.image-wrapper {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    margin-bottom: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+#mcq-image {
+    max-height: 40vh;
+    display: block;
+}
+
+.mcq-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+}
+
+.mcq-btn {
+    min-height: 60px;
+    font-size: 0.95rem;
+    text-align: center;
+    justify-content: center;
+}
+
+/* Loader */
+#loader-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    background: rgba(3, 3, 7, 0.75);
+    border-radius: 0;
+    border: none;
+}
+
+.loader-content {
+    max-width: 480px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.loader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid #00f2fe;
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+body.is-erasing {
+    /* Custom 80x50 SVG rectangle cursor, centered on the mouse */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="50"><rect width="80" height="50" fill="rgba(255,255,255,0.15)" stroke="%2300f2fe" stroke-width="2"/></svg>') 40 25, crosshair !important;
+}
+
+body.is-erasing * {
+    cursor: inherit !important; /* Force the cursor over everything while scrubbing */
+}
+/* =========================================
+   USELESS HACKATHON ADDITIONS
+========================================= */
+
+/* Global Inversion (Solar Flare) */
+body { transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55), filter 0.3s; }
+body.solar-flare {
+    transform: rotate(180deg);
+    filter: sepia(0.8) hue-rotate(-50deg) saturate(2);
+}
+
+/* Modals Overlay */
+.useless-modal {
+    position: fixed; inset: 0;
+    z-index: 9999;
+    background: rgba(3, 3, 7, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: center;
+}
+.useless-modal.hidden { display: none !important; }
+.modal-content {
+    padding: 40px; width: 90%; max-width: 500px;
+}
+.text-center { text-align: center; }
+
+/* Syzygy Orbit Mini-Game */
+.orbit-system {
+    position: relative; width: 260px; height: 260px;
+    margin: 30px auto; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+}
+.orbit-ring {
+    position: absolute; border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+#ring-year { inset: 10px; } /* 240px */
+#ring-month { inset: 50px; } /* 160px */
+#ring-day { inset: 90px; } /* 80px */
+
+.planet {
+    position: absolute; width: 24px; height: 24px; border-radius: 50%;
+    top: 50%; left: 50%; margin: -12px 0 0 -12px; cursor: grab;
+    box-shadow: 0 0 15px currentColor;
+}
+.planet:active { cursor: grabbing; }
+#planet-year { color: #00f2fe; background: #00f2fe; }
+#planet-month { color: #9d4edd; background: #9d4edd; }
+#planet-day { color: #ffb199; background: #ffb199; }
+
+/* Dark Matter Captcha */
+.captcha-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 8px; margin: 20px 0;
+}
+.c-tile {
+    aspect-ratio: 1; background: #08080c; border: 1px solid var(--glass-border);
+    border-radius: 8px; cursor: pointer; transition: 0.2s;
+    position: relative;
+}
+.c-tile:hover { border-color: #4facfe; }
+.c-tile.selected {
+    border-color: #ff0844; background: rgba(255,8,68,0.2);
+}
+.c-tile.selected::after {
+    content: "✖"; position: absolute; inset: 0; display: flex;
+    align-items: center; justify-content: center; color: #ff0844;
+    font-size: 2rem; font-weight: bold;
+}
+
+/* Kinetic Bandwidth */
+.progress-bar {
+    width: 100%; height: 24px; background: rgba(0,0,0,0.5);
+    border: 1px solid var(--glass-border); border-radius: 12px;
+    margin: 30px 0 10px; overflow: hidden;
+}
+#kinetic-fill {
+    height: 100%; width: 0%; background: var(--primary-grad);
+    box-shadow: 0 0 15px var(--glow-cyan); transition: width 0.1s linear;
+}
+#kinetic-text {
+    font-family: var(--font-heading); color: #00f2fe; margin: 0; font-size: 3rem;
+}
