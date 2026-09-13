@@ -75,7 +75,7 @@ https://drive.google.com/drive/folders/1_wSGh4xYlFQfXoGWWhyzD6iOQOf_3iDo?usp=sha
 The video demonstrates all the features in the NEELA NAKSHATRAM website including the flipping pages, shuffling orders, cleaning up, clicking for pi seconds and more!
 
 # Additional Demos
-https://neelanakshatram.netlify.app
+https://neelanakshathram.netlify.app/
 
 ## Team Contributions
 - A Aditya Nair: Idea, Javascript and HTML coding, website implimentation
