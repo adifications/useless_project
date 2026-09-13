@@ -2,96 +2,84 @@
 
 
 
-# [Project Name] 🎯
+# NEELA NAKSHATRAM 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: KWIKCODE
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: A ADITYA NAIR - MACE
+- Member 2: SANAL B PEECHATTU - MACE
 
 ### Project Description
-[2-3 lines about what your project does]
+This is a space exploration website where we can see a picture taken by NASA's telescope on the specific date we entered. An added functionality is an MCQ game where we endlessly get questions asked related to space. Sounds useful but the steps to reach that final destination is very hard with puzzles, questions, verification and jumbles.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+There are people in this world who struggle to read normal linear websites and people who struggle to keep looking at static UI. There are also people who hate having everything easy to them. Such people hate normal websites.
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+We solved these problems by integrating all of it into a single solution. In this, the UI every now and inverts 180 degrees for extra comfortability of those people, then there's the 5 levels of difficulty to be overcome in reaching the final image taken on that day, precisely for people who hate having it easy. This website is by everyone for everyone with the sole purpose of inclusivity with learning!
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- HTML
+- CSS
+- JAVASCRIPT
+- NASA APOD API
+- GOOGLE GEMINI
 
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
 
 ### Implementation
 For Software:
 # Installation
-[commands]
+# Clone the repositor
+git clone https://github.com/your-username/useless_project.git
+cd useless_project
+# API Key Setup
+ Open script.js and manually replace the "SECRET_NETLIFY_KEY" string 
+ at the top of the file with your own NASA API key.
 
 # Run
-[commands]
+ Option 1: Simple Local Viewing
+ Double-click 'index.html' in your file explorer to open it directly in a browser.
+
+ Option 2: Live website
+ Visit neelanakshatram.netlify.app
 
 ### Project Documentation
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+<img width="1897" height="1140" alt="Screenshot 2026-09-13 160215" src="https://github.com/user-attachments/assets/cdc04ca5-b3bf-4070-8c37-b4ba18c7eb27" />
+The website reverses itself every minute for 10 seconds to help the people who struggles with linear websites adjust their eyes
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+<img width="1897" height="1140" alt="Screenshot 2026-09-13 160252" src="https://github.com/user-attachments/assets/9367eabf-a5e8-4216-abe5-44f24948cf18" />
+MCQ questions related to space which is good for gaining knowledge about space
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+<img width="1897" height="1140" alt="Screenshot 2026-09-13 160349" src="https://github.com/user-attachments/assets/d6dbb2b0-418a-49e5-9f80-b3bf6b2d5796" />
+Step 3 before we reach the image at the end. We have to align 3 planets at exactly 0 degrees
 
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+<img width="1897" height="1140" alt="Screenshot 2026-09-13 160400" src="https://github.com/user-attachments/assets/8f06f896-5fd0-4773-82e2-5cce976047dd" />
+Step 5 before we reach the image at the end. We have to provide kinetic energy to the image to reach us by scrolling with our mouse
 
-For Hardware:
+<img width="1897" height="1140" alt="Screenshot 2026-09-13 160413" src="https://github.com/user-attachments/assets/a4129be7-3d68-4b52-ae5a-7ca697d7a820" />
+In the final image, clean the blurred image with our cursor. Bonus work for people who hate having it easy
 
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+https://drive.google.com/drive/folders/1_wSGh4xYlFQfXoGWWhyzD6iOQOf_3iDo?usp=sharing
+The video demonstrates all the features in the NEELA NAKSHATRAM website including the flipping pages, shuffling orders, cleaning up, clicking for pi seconds and more!
 
 # Additional Demos
-[Add any extra demo materials/links]
+https://neelanakshatram.netlify.app
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- A Aditya Nair: Idea, Javascript and HTML coding, website implimentation
+- Sanal B Peechattu: Idea, CSS coding and quirk implimentation
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
